@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Noblesse — The House</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<header class="site">
+  <div class="nav-row">
+    <a href="#/home" class="logo">NOBLESSE</a>
+    <nav class="links" id="navLinks">
+      <a href="#/shop" data-route="shop">Shop</a>
+      <a href="#/lookbook" data-route="lookbook">Lookbook</a>
+      <a href="#/house" data-route="house">The House</a>
+    </nav>
+    <button class="cart-btn" onclick="location.hash='#/cart'">
+      <span>Cart</span><span id="cartCount">(0)</span>
+    </button>
+  </div>
+</header>
+
+<!-- ============ HOME ============ -->
+<div class="view" id="view-home">
+  <section class="hero" style="padding:0;">
+    <img src="https://images.unsplash.com/photo-1490578474895-699cd4e2cf59?w=1600&q=80" alt="">
+    <div class="hero-tag tag dark">SS26 — The Quiet Collection</div>
+    <div class="hero-content">
+      <h1 class="serif">Garments built<br>for <em>permanence</em>,<br>not seasons.</h1>
+      <p class="lead">Noblesse cuts in small runs, from cloth we re-order until it's discontinued. Nothing here is designed to date.</p>
+      <a class="btn ghost" href="#/shop">Enter the Shop →</a>
+    </div>
+  </section>
+
+  <section class="house-teaser">
+    <div class="wrap house-grid">
+      <div>
+        <span class="eyebrow" style="color:var(--bronze);">The House</span>
+        <h2 class="serif" style="font-size:clamp(28px,4vw,44px);font-weight:400;margin:14px 0 24px;">Founded on the belief that tailoring is a form of restraint.</h2>
+        <p>We work with eleven mills across three countries, none of them fast, all of them still family-run. Every pattern is drafted in-house and held for a minimum of four seasons before it's retired. This is not a house that chases trend cycles — it's one that waits for cloth to be ready.</p>
+        <a class="btn ghost" href="#/house" style="margin-top:8px;">Read our story →</a>
+      </div>
+      <div class="figure">
+        <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=900&q=80" alt="">
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <span class="eyebrow">Lookbook — SS26</span>
+          <h2 class="serif">The Quiet Collection</h2>
+        </div>
+        <p>Shot in Piedmont, unstyled — no direction beyond asking each person to stand still.</p>
+      </div>
+      <div class="look-grid">
+        <div class="cell"><img src="https://images.unsplash.com/photo-1445205170230-053b83016050?w=1200&q=80" alt=""><div class="cap tag">Look 01</div></div>
+        <div class="cell"><img src="https://images.unsplash.com/photo-1483985988355-763728e1935b?w=700&q=80" alt=""><div class="cap tag">Look 02</div></div>
+        <div class="cell"><img src="https://images.unsplash.com/photo-1552374196-c4e7ffc6e126?w=700&q=80" alt=""><div class="cap tag">Look 03</div></div>
+        <div class="cell"><img src="https://images.unsplash.com/photo-1544022613-e87ca75a784a?w=700&q=80" alt=""><div class="cap tag">Look 04</div></div>
+        <div class="cell"><img src="https://images.unsplash.com/photo-1490114538077-0a7f8cb49891?w=700&q=80" alt=""><div class="cap tag">Look 05</div></div>
+      </div>
+      <div style="text-align:right;margin-top:28px;">
+        <a class="btn ghost-dark" href="#/lookbook">View full lookbook →</a>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding-top:0;">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <span class="eyebrow">Best Held</span>
+          <h2 class="serif">Pieces that don't rotate out</h2>
+        </div>
+        <p>The six most re-ordered pieces in the house — kept in stock indefinitely.</p>
+      </div>
+      <div class="product-grid" id="featuredGrid"></div>
+    </div>
+  </section>
+</div>
+
+<!-- ============ SHOP ============ -->
+<div class="view" id="view-shop">
+  <section style="padding-top:56px;">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <span class="eyebrow">Shop</span>
+          <h2 class="serif">The Full Collection</h2>
+        </div>
+        <p>28 pieces. Nothing marked down — we price for the life of the garment, not the season.</p>
+      </div>
+      <div class="filters" id="filterRow"></div>
+      <div class="product-grid" id="shopGrid"></div>
+    </div>
+  </section>
+</div>
+
+<!-- ============ PRODUCT DETAIL ============ -->
+<div class="view" id="view-product">
+  <section style="padding-top:56px;">
+    <div class="wrap">
+      <div class="pd-grid" id="pdContainer"></div>
+    </div>
+  </section>
+</div>
+
+<!-- ============ CART ============ -->
+<div class="view" id="view-cart">
+  <section style="padding-top:56px;">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <span class="eyebrow">Your Bag</span>
+          <h2 class="serif">Cart</h2>
+        </div>
+      </div>
+      <div id="cartContainer"></div>
+    </div>
+  </section>
+</div>
+
+<!-- ============ THE HOUSE / ABOUT ============ -->
+<div class="view" id="view-house">
+  <section class="house-hero" style="padding-top:64px;">
+    <div class="wrap">
+      <span class="eyebrow" style="color:var(--bronze);">The House</span>
+      <h1 class="serif">We make clothes the way we'd want them made for us — slowly, and without apology for the cost of that.</h1>
+    </div>
+  </section>
+  <section>
+    <div class="wrap">
+      <p style="max-width:640px;font-size:16px;line-height:1.8;color:var(--stone);">Noblesse started as a two-person tailoring studio before it became anything resembling a brand. The name came later, and reluctantly — we'd rather the clothes carried the reputation than the word did. What hasn't changed is the standard: every pattern is drafted and graded in-house, every mill relationship is one we've held for years, and nothing leaves the atelier until someone who isn't us has worn it first.</p>
+      <div class="values-grid">
+        <div class="value"><h3>Cut, not trend</h3><p>Patterns are revised, not replaced. A jacket block we drafted in year two is still in use, refined but recognizable.</p></div>
+        <div class="value"><h3>Cloth first</h3><p>We choose fabric before season, and hold a design until the right cloth exists — sometimes for years.</p></div>
+        <div class="value"><h3>Kept in stock</h3><p>Core pieces don't get discontinued to make room for new ones. We'd rather carry fewer styles longer.</p></div>
+      </div>
+      <div class="split">
+        <img src="https://images.unsplash.com/photo-1441984904996-e0b6ba687e04?w=900&q=80" alt="">
+        <div>
+          <span class="eyebrow">The Ateliers</span>
+          <h3 class="serif" style="font-size:26px;font-weight:400;margin:12px 0 16px;">Three ateliers, one standard</h3>
+          <p>Our tailoring is finished in Biella, our knitwear in the Veneto, and our leather goods in a single workshop outside Florence that takes on no other clients. Each ships to a shared quality bench before anything is listed for sale.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ============ LOOKBOOK / JOURNAL ============ -->
+<div class="view" id="view-lookbook">
+  <section style="padding-top:56px;">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <span class="eyebrow">Lookbook</span>
+          <h2 class="serif">Journal &amp; Seasonal Looks</h2>
+        </div>
+        <p>Field notes from each season, alongside the collection that came out of it.</p>
+      </div>
+      <div class="journal-grid" id="journalGrid"></div>
+    </div>
+  </section>
+</div>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <span class="logo">NOBLESSE</span>
+        <p>Tailoring and knitwear, drafted in-house and held in stock for years, not seasons.</p>
+      </div>
+      <div class="foot-col">
+        <h4>Shop</h4>
+        <a href="#/shop">All Pieces</a>
+        <a href="#/lookbook">Lookbook</a>
+        <a href="#/cart">Cart</a>
+      </div>
+      <div class="foot-col">
+        <h4>House</h4>
+        <a href="#/house">Our Story</a>
+        <a href="#/house">The Ateliers</a>
+      </div>
+      <div class="foot-col">
+        <h4>Care</h4>
+        <a href="#/house">Shipping</a>
+        <a href="#/house">Returns</a>
+        <a href="#/house">Contact</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 NOBLESSE</span>
+      <span>DRAFTED IN-HOUSE — ITALY</span>
+    </div>
+  </div>
+</footer>
+
+<div class="toast" id="toast"></div>
+
+<script src="js/data.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
